@@ -11,6 +11,7 @@ import java.util.List;
 @Table
 public class Article {
 
+    @Id
     private long id;
 
     private String topic;
