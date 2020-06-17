@@ -1,5 +1,5 @@
-INSERT INTO users(name, lastname, email, city, birth_date)
-VALUES('John','Smith','john@gmai.com','London','1992-06-23');
+INSERT INTO users(name, last_name, email, city, birth_date, password)
+VALUES('John','Smith','john@gmai.com','London','1992-06-23', 'password');
 
 INSERT INTO resume(job_position, description)
 VALUES('developer', 'have 3 years experience');
