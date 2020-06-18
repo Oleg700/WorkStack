@@ -2,9 +2,13 @@ package org.workstack.service.user;
 
 import org.workstack.model.User;
 
+import java.util.List;
+
 public interface UserService {
+
+    List<User> findAll();
 
     User getUserByName(String name);
 
-    void saveUser(User user);
+    User saveUser(User user);
 }

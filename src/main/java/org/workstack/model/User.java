@@ -1,18 +1,28 @@
 package org.workstack.model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.List;
+import java.util.Set;
+import java.util.SortedSet;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "users")
+@NamedEntityGraph(name = "user-graph",
+        attributeNodes = {
+                @NamedAttributeNode(value = "resume"),
+                @NamedAttributeNode(value = "roles"),
+                @NamedAttributeNode(value = "articles", subgraph = "comments")},
+        subgraphs = @NamedSubgraph(name = "comments", attributeNodes = @NamedAttributeNode("comments")))
+
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String name;
@@ -29,15 +39,19 @@ public class User {
 
     private String password;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Article> articles;
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OrderBy("id")
+    private SortedSet<Article> articles;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "user",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Resume resume;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(
                     name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
-    private Collection<Role> roles;
+    private Set<Role> roles;
 }

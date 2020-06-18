@@ -5,25 +5,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.workstack.model.Article;
-import org.workstack.service.article.ArticleService;
+import org.workstack.model.Resume;
+import org.workstack.service.resume.ResumeService;
 
 import java.util.List;
 
 @RestController
-public class ArticleController {
+public class ResumeController {
 
     @Autowired
-    ArticleService articleService;
+    ResumeService resumeService;
 
-    @GetMapping(value = "/articles")
-    public List<Article> getAll() {
-        return articleService.findAll();
+    @GetMapping(value = "/resumes")
+    public List<Resume> getAll(){
+        return resumeService.findAll();
     }
 
-    @PostMapping(value = "/articles")
-    public Article save(@RequestBody Article article) {
-        return articleService.save(article);
+    @PostMapping(value = "/resumes")
+    public Resume save(@RequestBody Resume resume){
+        return resumeService.save(resume);
     }
-
 }

@@ -2,7 +2,11 @@ package org.workstack.service.article;
 
 import org.workstack.model.Article;
 
+import java.util.List;
+
 public interface ArticleService {
 
-    void saveArticle(Article article);
+    Article save(Article article);
+
+    List<Article> findAll();
 }
