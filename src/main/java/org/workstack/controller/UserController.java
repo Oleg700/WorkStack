@@ -1,6 +1,7 @@
 package org.workstack.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,15 +15,16 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @GetMapping(value = "/users")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<User> getAll() {
         return userService.findAll();
     }
 
     @PostMapping(value = "/users")
-    public User save(@RequestBody User user){
+    public User save(@RequestBody User user) {
         return userService.saveUser(user);
     }
 

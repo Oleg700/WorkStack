@@ -14,7 +14,7 @@ import java.util.List;
 public class ArticleController {
 
     @Autowired
-    ArticleService articleService;
+    private ArticleService articleService;
 
     @GetMapping(value = "/articles")
     public List<Article> getAll() {

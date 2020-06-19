@@ -12,10 +12,11 @@ import org.workstack.service.comment.CommentService;
 public class CommentController {
 
     @Autowired
-    CommentService commentService;
+    private CommentService commentService;
 
     @PostMapping(value = "/articles/{id}/comments")
-    public Comment save(@PathVariable("id") final long articleId, @RequestBody Comment comment){
+    public Comment save(@PathVariable("id") final long articleId,
+                        @RequestBody Comment comment) {
         return commentService.save(comment, articleId);
     }
 }

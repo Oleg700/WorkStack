@@ -14,15 +14,15 @@ import java.util.List;
 public class ResumeController {
 
     @Autowired
-    ResumeService resumeService;
+    private ResumeService resumeService;
 
     @GetMapping(value = "/resumes")
-    public List<Resume> getAll(){
+    public List<Resume> getAll() {
         return resumeService.findAll();
     }
 
     @PostMapping(value = "/resumes")
-    public Resume save(@RequestBody Resume resume){
+    public Resume save(@RequestBody Resume resume) {
         return resumeService.save(resume);
     }
 }
