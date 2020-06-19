@@ -46,6 +46,8 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
+    private String username;
+
     private String email;
 
     private String city;

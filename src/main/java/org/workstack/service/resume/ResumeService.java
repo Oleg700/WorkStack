@@ -8,5 +8,5 @@ public interface ResumeService {
 
     List<Resume> findAll();
 
-    Resume save(Resume resume);
+    Resume save(Resume resume, String username);
 }

@@ -17,6 +17,7 @@ import javax.persistence.NamedAttributeNode;
 import javax.persistence.NamedEntityGraph;
 import javax.persistence.NamedSubgraph;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.List;
@@ -57,5 +58,12 @@ public class Article implements Comparable<Article> {
     @Override
     public int compareTo(Article article) {
         return Long.compare(this.id, article.id);
+    }
+
+    @PrePersist
+    public void prePersist(){
+        if(publicationDate == null){
+            publicationDate = LocalDate.now();
+        }
     }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ArticleService {
 
-    Article save(Article article);
+    Article save(Article article, String username);
 
     List<Article> findAll();
 }

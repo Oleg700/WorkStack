@@ -20,9 +20,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Transactional
     @Override
-    public UserDetails loadUserByUsername(String name)
+    public UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException {
-        User user = userRepository.findByName(name);
+        User user = userRepository.findByUsername(username);
         Hibernate.initialize(user.getRoles());
         return new UserDetailsImpl(user);
     }

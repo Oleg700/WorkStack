@@ -1,8 +1,8 @@
-INSERT INTO users(name, last_name, email, city, birth_date, password)
-VALUES('John','Smith','john@gmai.com','London','1992-06-23', '$2a$10$O4hMKexhB4zWR.f9n3zz7O.kNlsW6NkH4uLXogC0t6dxImzMe/yb2');
+INSERT INTO users(name, last_name, username, email, city, birth_date, password)
+VALUES('John','Smith', 'john','john@gmai.com','London','1992-06-23', '$2a$10$O4hMKexhB4zWR.f9n3zz7O.kNlsW6NkH4uLXogC0t6dxImzMe/yb2');
 
-INSERT INTO users(name, last_name, email, city, birth_date, password)
-VALUES('Paul','Smith','johan@gmai.com','London','1992-06-23', '$2a$10$O4hMKexhB4zWR.f9n3zz7O.kNlsW6NkH4uLXogC0t6dxImzMe/yb2');
+INSERT INTO users(name, last_name, username, email, city, birth_date, password)
+VALUES('Paul', 'Smith','paul','johan@gmai.com','London','1992-06-23', '$2a$10$O4hMKexhB4zWR.f9n3zz7O.kNlsW6NkH4uLXogC0t6dxImzMe/yb2');
 
 INSERT INTO resume(job_position, description)
 VALUES('developer', 'have 3 years experience');

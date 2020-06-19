@@ -30,10 +30,12 @@ public class Resume {
     @Column(name = "job_position")
     private String jobPosition;
 
+    private String description;
+
     @OneToOne
     @JoinColumn(name = "id")
     @JsonIgnore
     private User user;
 
-    private String description;
+
 }

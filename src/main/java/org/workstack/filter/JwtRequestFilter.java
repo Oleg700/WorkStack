@@ -1,4 +1,4 @@
-package org.workstack.security.filter;
+package org.workstack.filter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -50,6 +50,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                         .buildDetails(request));
                 SecurityContextHolder.getContext()
                         .setAuthentication(usernamePasswordAuthenticationToken);
+                usernamePasswordAuthenticationToken.getCredentials();
+                usernamePasswordAuthenticationToken.getPrincipal();
             }
         }
         filterChain.doFilter(request, response);

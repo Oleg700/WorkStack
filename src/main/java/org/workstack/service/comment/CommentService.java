@@ -8,5 +8,5 @@ public interface CommentService {
 
     List<Comment> findAll();
 
-    Comment save(Comment comment, long articleId);
+    Comment save(Comment comment, long articleId, String username);
 }
