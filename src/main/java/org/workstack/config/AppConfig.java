@@ -17,6 +17,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class AppConfig {
 
+    public static final String MESSAGES_PROPERTY = "ValidationMessages";
+    public static final String ENCODING_UTF_8 = "UTF-8";
+
     @Bean
     public ModelMapper getModelMapper(){
         return new ModelMapper();
@@ -25,8 +28,8 @@ public class AppConfig {
     @Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename("ValidationMessages");
-        messageSource.setDefaultEncoding("UTF-8");
+        messageSource.setBasename(MESSAGES_PROPERTY);
+        messageSource.setDefaultEncoding(ENCODING_UTF_8);
         return messageSource;
     }
 

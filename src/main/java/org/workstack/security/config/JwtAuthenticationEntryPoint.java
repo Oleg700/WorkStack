@@ -12,7 +12,7 @@ import java.io.IOException;
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
-    public static final String UNAUTHORIZED_EXCEPTION = "Unauthrized";
+    public static final String UNAUTHORIZED_EXCEPTION = "Unauthorized";
 
     @Override
     public void commence(HttpServletRequest httpServletRequest,
